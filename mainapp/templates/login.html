@@ -1,0 +1,41 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block title %}
+login | Klick iT
+{% endblock title %}
+{% block body %}
+<div class="container-fluid mt-3  ">
+    <div class="row">
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+            <img src="{% static 'images/login.jpg' %}" alt="" class="w-100 image-fluid h-justiffy" style="height: 60vh;">
+        </div>
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 c0l-sm-6 col-12">
+            <h5 class="background text-light p-2 text-center ">Login Section</h5>
+            {% for i in messages  %}
+          <div class="alert alert-primary" role="alert">
+            {{i}}
+          </div> 
+          {% endfor %}
+            <form action="" method="post" >
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email / Username</label>
+                  <input type="text" class="form-control" name="username" placeholder="enter email or username">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" name="password" placeholder="enter password">
+                </div>
+                
+                <button type="submit" class="btn background text-light w-100">login</button>
+              </form>
+              <div class="d-flex justify-content-between">
+                <a href="/forget-email/" class="text-decoration-none mt-2 text-primary">Forget Password</a>
+                <a href="/signup/" class="text-decoration-none mt-2 text-primary" style="text-align: justify;">New Nser? Create free Account</a>
+              </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

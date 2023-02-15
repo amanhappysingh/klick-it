@@ -1,0 +1,71 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block title %}
+Sign Up | Klick iT
+{% endblock title %}
+{% block body %}
+<div class="container-fluid mt-1  ">
+    <div class="row">
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+            <img src="{% static 'images/signup.jpg' %}" alt="" class="w-100 image-fluid h-justiffy" style="height: 60vh;">
+        </div>
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 c0l-sm-6 col-12">
+          <h5 class="background text-light p-2 text-center ">SignUp Section</h5>
+          {% for i in messages  %}
+          <div class="alert alert-primary" role="alert">
+            {{i}}
+          </div> 
+          {% endfor %}
+          
+            <form  action="" method="post">
+              {% csrf_token %}
+                
+                <div class="mb-1">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" name="name" placeholder="enter your name">
+                  
+                </div>
+                
+                <div class="mb-1">
+                  <label for="username" class="form-label">Username</label>
+                  <input type="text" class="form-control" name="username" placeholder="enter username">
+                  
+                </div>
+                <div class="mb-1">
+                  <label for="email" class="form-label">Email Id</label>
+                  <input type="email" class="form-control" name="email" placeholder="enter email">
+                  
+                </div>
+                <div class="mb-1">
+                  <label for="number" class="form-label">Phone Number</label>
+                  <input type="text" class="form-control" name="phone" placeholder="enter contect number">
+                  
+                </div>
+                <div class="mb-1">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" name="password" placeholder="enter password">
+                </div>
+                <div class="mb-1">
+                  <label for="cpassword" class="form-label">Confirn Password</label>
+                  <input type="password" class="form-control" name="cpassword" placeholder="enter password">
+                </div>
+                <div class="mb-1 ">
+                  <label for="actype" class="form-label">Account type</label>
+                  <select name="actype" id="actype" class="form-control">
+                    <option value="seller">Seller</option>
+                    <option value="buyer">Buyer</option>
+                  </select>
+                  
+                </div>
+                
+                <button type="submit" class="btn background text-light w-100 mt-3">Sign Up</button>
+              </form>
+              <div class="d-flex justify-content-between">
+              
+                <a href="/login/" class="text-decoration-none mt-2 text-primary" style="text-align: justify;">Already user| Login</a>
+              </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

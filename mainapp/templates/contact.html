@@ -1,0 +1,63 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block title %}
+Klick iT | Contact
+{% endblock title %}
+{% block body %}
+<div class="container-fluid mt-1  ">
+    <div class="row">
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+            <div class="background text-center p-3 text-light mb-3">
+              email : klickit.online@gmail.com
+            </div>
+            <div class= "background text-center p-3 text-light mb-3">
+              customer care : 1244-7905202(24x7)
+            </div>
+            <div class="background text-center p-3 text-light mb-3">
+              Head Office : E2/173 vineet khand, Lucknow
+            </div>
+            <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="500px" id="gmap_canvas" src="https://maps.google.com/maps?q=e2/173%20vineet%20khand%202%20,gomtinagar%20&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div></div>
+            
+        </div>
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 c0l-sm-6 col-12">
+          <h5 class="background text-light p-2 text-center ">Contect Us </h5>
+          {% for i in messages  %}
+          <div class="alert alert-primary" role="alert">
+            {{i}}
+          </div> 
+          {% endfor %}
+          
+            <form  action="" method="post">
+              {% csrf_token %}
+                
+                <div class="mb-1">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" name="name" placeholder="enter your name">
+                </div>
+                <div class="mb-1">
+                  <label for="email" class="form-label">Email Id</label>
+                  <input type="email" class="form-control" name="email" placeholder="enter email">
+                  
+                </div>
+                <div class="mb-1">
+                  <label for="number" class="form-label">Phone Number</label>
+                  <input type="text" class="form-control" name="phone" placeholder="enter contect number">
+                  
+                </div>
+                <div class="mb-1">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea type="" class="form-control" name="phone" placeholder="Your message.....!"></textarea>
+                  
+                </div>
+                
+                <button type="submit" class="btn background text-light w-100 mt-3">Send Mail</button>
+              </form>
+              <div class="d-flex justify-content-between">
+              
+                <a href="/login/" class="text-decoration-none mt-2 text-primary" style="text-align: justify;">Already user| Login</a>
+              </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

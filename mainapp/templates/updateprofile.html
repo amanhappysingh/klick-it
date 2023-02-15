@@ -1,0 +1,95 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block title %}
+update profile | Klick iT
+{% endblock title %}
+{% block body %}
+<div class="container-fluid mt-1  ">
+    <div class="row">
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 c0l-sm-6 col-12">
+            {%if User.pic %}
+              <img src="{{User.pic.url}}" alt="" class="w-100 image-fluid h-justiffy" style="height: 60vh;">
+            {% else %}
+              <img src="{% static 'images/noimage.jpg'%}" alt="" class="w-100 image-fluid h-justiffy" style="height: 60vh;">
+            {% endif %}
+        </div>
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 c0l-sm-6 col-12">
+          <h5 class="background text-light p-2 text-center ">Update Profile Section</h5>
+          {% for i in messages  %}
+          <div class="alert alert-primary" role="alert">
+            {{i}}
+          </div> 
+          {% endfor %}
+          
+            <form  action="" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+                
+                <div class="mb-1">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" name="name" placeholder="enter your name" value="{{User.name}}">
+                  
+                </div>
+                
+                
+                <div class="mb-1">
+                  <label for="email" class="form-label">Email Id</label>
+                  <input type="email" class="form-control" name="email" placeholder="enter email" value="{{User.email}}">
+                  
+                </div>
+                <div class="mb-1">
+                  <label for="number" class="form-label">Phone Number</label>
+                  <input type="text" class="form-control" name="phone" placeholder="enter contect number" value="{{User.phonenumber}}">
+                  
+                </div>
+                <div class="mb-1">
+                    <label for="address1" class="form-label">Address Line1</label>
+                    <input type="text" class="form-control" name="address1" placeholder="House No." value="{{User.address3}}">
+                    
+                  </div>
+                  <div class="mb-1">
+                    <label for="address2" class="form-label">Address Line2</label>
+                    <input type="text" class="form-control" name="address2" placeholder="Area" value="{{User.address2}}">
+                    
+                  </div>
+                
+                <div class="mb-1">
+                    <label for="address3" class="form-label">Address Line3</label>
+                    <input type="text" class="form-control" name="address3" placeholder="Enter Locality" value="{{User.address1}}">
+                    
+                  </div>
+                  <div class="mb-1">
+                    <label for="pin" class="form-label">PIN</label>
+                    <input type="text" class="form-control" name="pin" value="{{User.pin}}">
+                    
+                  </div>
+                  <div class="mb-1">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" name="city" value="{{User.city}}">
+                    
+                  </div>
+                  <div class="mb-1">
+                    <label for="state" class="form-label">State</label>
+                    <input type="text" class="form-control" name="state" value="{{User.state}}">
+                    
+                  </div>
+                  <div class="mb-1">
+                    <label for="pic" class="form-label">Pic</label>
+                    <input type="file" class="form-control" name="pic" >
+                    
+                  </div>
+
+                
+                
+                
+                <button type="submit" class="btn background text-light w-100 mt-3">Update Profile</button>
+              </form>
+              <div class="d-flex justify-content-between">
+              
+                <a href="/login/" class="text-decoration-none text-primary" style="text-align: justify;">Already user| Login</a>
+              </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
